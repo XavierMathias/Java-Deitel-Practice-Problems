@@ -1,19 +1,31 @@
 package Chapter4;
+import java.net.ResponseCache;
 import java.util.Scanner;
 
 public class GasMileage {
 
-    private int miles_driven, gallons;
+    private int miles_driven, gallons, totalTrips;
     private Scanner input = new Scanner(System.in);
+    private String response;
+    private float totalMileage;
 
-
+    // TODO: Put the while loop inside the if statement
     public GasMileage(){
-        System.out.println("Please enter how many miles you have driven:");
-        this.miles_driven = input.nextInt();
+        System.out.println("Would you like to calculate your average gas mileage? Y/N");
+        response = input.next();
+        if (response.equals("Y")){
+            System.out.println("Enter 0 to end.");
+        }
+        while(response.equals("Y")){
 
-        System.out.println("Please enter how many gallons you used:");
-        this.gallons = input.nextInt();
+            System.out.println("Please enter how many miles you have driven:");
+            this.miles_driven = input.nextInt();
 
+            System.out.println("Please enter how many gallons you used:");
+            this.gallons = input.nextInt();
+
+            System.out.print("Miles: " + miles_driven + " | Gallons: " + gallons + " = " + milesPerGallonCalc(this.miles_driven, this.gallons));
+        }
 
     } // end of constructor
 
@@ -22,6 +34,12 @@ public class GasMileage {
         this.gallons = b;
     } // end of constructor
 
-
+    // returns mileage
+    public float milesPerGallonCalc(int miles, int gallons){
+        float oneMileage = miles / gallons;
+        totalMileage += oneMileage;
+        totalTrips++;
+        return oneMileage;
+    }
 
 } // end of class
