@@ -1,4 +1,7 @@
 package Chapter4;
+import jdk.swing.interop.SwingInterOpUtils;
+import java.lang.Integer;
+
 import java.net.ResponseCache;
 import java.util.Scanner;
 
@@ -44,7 +47,7 @@ public class GasMileage {
 
     // returns mileage
     public float milesPerGallonCalc(int miles, int gallons){
-        float oneMileage = miles / gallons;
+        float oneMileage = (float) miles / (float) gallons;
         totalMileage += oneMileage;
         totalTrips++;
         return oneMileage;
