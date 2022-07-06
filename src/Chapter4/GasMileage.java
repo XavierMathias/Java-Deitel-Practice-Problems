@@ -14,19 +14,27 @@ public class GasMileage {
         System.out.println("Would you like to calculate your average gas mileage? Y/N");
         response = input.next();
         if (response.equals("Y")){
-            System.out.println("Enter 0 to end.");
-        }
-        while(response.equals("Y")){
+            //Repeating logging
+            while(response.equals("Y") ){
 
-            System.out.println("Please enter how many miles you have driven:");
-            this.miles_driven = input.nextInt();
+                System.out.println("Please enter how many miles you have driven:");
+                this.miles_driven = input.nextInt();
 
-            System.out.println("Please enter how many gallons you used:");
-            this.gallons = input.nextInt();
+                System.out.println("Please enter how many gallons you used:");
+                this.gallons = input.nextInt();
 
-            System.out.print("Miles: " + miles_driven + " | Gallons: " + gallons + " = " + milesPerGallonCalc(this.miles_driven, this.gallons));
-        }
+                System.out.println("Miles: " + miles_driven + " | Gallons: " + gallons + " = " + milesPerGallonCalc(this.miles_driven, this.gallons) + " miles/gallon");
+                System.out.println("Do you want to enter another trip? Y/N");
+                response = input.next();
+            } // end of while loop
 
+            System.out.println("Your average gas mileage for the trip is: " + averageMileage() + " MILES PER GALLON");
+
+            System.out.println("Program Ended!");
+
+        } //end of if
+
+        System.out.println("Thank You!");
     } // end of constructor
 
     public GasMileage(int a, int b){
@@ -41,5 +49,10 @@ public class GasMileage {
         totalTrips++;
         return oneMileage;
     }
+
+    public float averageMileage(){
+        return totalMileage / totalTrips;
+    }
+
 
 } // end of class
