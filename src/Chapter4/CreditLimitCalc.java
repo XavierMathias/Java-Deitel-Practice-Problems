@@ -8,7 +8,7 @@ public class CreditLimitCalc {
 
     public CreditLimitCalc (){
 
-        System.out.println("Enter the following information:");
+
 
     } // end of constructor
 
@@ -17,24 +17,38 @@ public class CreditLimitCalc {
 
     class Customer{
 
-        private int accountNum;
+        private int accountNum = 28740189;
         private int balance;
         private int totalItemsCharged;
         private int totalCreditsApplied;
-        private int creditLimit;
+        private int creditLimit = 1500;
 
-        Customer(int accountNum, int beginningBalance, int totalItemsCharged, int creditsApplied, int creditLimit){
-            this.accountNum = accountNum;
-            this.balance = beginningBalance;
-            this.totalItemsCharged = totalItemsCharged;
-            this.totalCreditsApplied = creditsApplied;
-            this.creditLimit = creditLimit;
+        Customer(){
+            System.out.println("Enter price of item. Enter 0 to end");
+            int clientInput = input.nextInt();
+            while(clientInput == 0){
+                System.out.print("Item " + (totalItemsCharged + 1) +": " );
+                int price = input.nextInt();
+                System.out.println(price);
+                balance =+ price;
+                totalCreditsApplied =+ price;
+                totalItemsCharged ++;
+
+                if(newBalanceCalc() > creditLimit ){
+                    System.out.println("Credit limit exceeded");
+                    break;
+                }
+
+                System.out.println("Enter price of item. Enter 0 to end");
+                clientInput = input.nextInt();
+
+            } // end of while
 
             System.out.println("This is your new balance: $" + newBalanceCalc());
-            if(newBalanceCalc() > creditLimit ){
-                System.out.println("Credit limit exceeded");
-            }
+            System.out.println("This is your credit line: $" + totalCreditsApplied + " / " + creditLimit);
+
         } // end of constructor
+
 
         // calculates the new balance and determining if the balance exceeded the credit limit
         private int newBalanceCalc(){
