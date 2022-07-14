@@ -8,7 +8,8 @@ public class CreditLimitCalc {
 
     public CreditLimitCalc (){
 
-
+        System.out.println("Enter price of item. Enter 0 to end");
+        Customer c = new Customer(input.nextInt());
 
     } // end of constructor
 
@@ -23,15 +24,12 @@ public class CreditLimitCalc {
         private int totalCreditsApplied;
         private int creditLimit = 1500;
 
-        Customer(){
-            System.out.println("Enter price of item. Enter 0 to end");
-            int clientInput = input.nextInt();
-            while(clientInput == 0){
-                System.out.print("Item " + (totalItemsCharged + 1) +": " );
-                int price = input.nextInt();
-                System.out.println(price);
-                balance =+ price;
-                totalCreditsApplied =+ price;
+        Customer(int clientInput){
+            int itemPrice = clientInput;
+            while(itemPrice > 0){
+                System.out.print("Item " + (totalItemsCharged + 1) +": $" + itemPrice);
+                balance =+ itemPrice;
+                totalCreditsApplied =+ itemPrice;
                 totalItemsCharged ++;
 
                 if(newBalanceCalc() > creditLimit ){
@@ -40,7 +38,7 @@ public class CreditLimitCalc {
                 }
 
                 System.out.println("Enter price of item. Enter 0 to end");
-                clientInput = input.nextInt();
+                itemPrice = input.nextInt();
 
             } // end of while
 
