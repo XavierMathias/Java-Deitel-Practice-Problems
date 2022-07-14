@@ -8,8 +8,12 @@ public class CreditLimitCalc {
 
     public CreditLimitCalc (){
 
-        System.out.println("Enter price of item. Enter 0 to end");
-        Customer c = new Customer(input.nextInt());
+        System.out.println("Enter number of items charged");
+        int itemsCharged = input.nextInt();
+        System.out.println("Enter number of credits applied");
+        int creditsApplied = input.nextInt();
+
+        Customer c = new Customer(itemsCharged, creditsApplied);
 
     } // end of constructor
 
@@ -18,34 +22,26 @@ public class CreditLimitCalc {
 
     class Customer{
 
-        private int accountNum = 28740189;
-        private int balance;
+        private int accountNum = 9475394;
+        private int balance = 500;
         private int totalItemsCharged;
         private int totalCreditsApplied;
-        private int creditLimit = 1500;
+        private int creditLimit = 300;
 
-        Customer(int clientInput){
-            int itemPrice = clientInput;
-            while(itemPrice > 0){
-                System.out.print("Item " + (totalItemsCharged + 1) +": $" + itemPrice);
-                balance =+ itemPrice;
-                totalCreditsApplied =+ itemPrice;
-                totalItemsCharged ++;
+        Customer(int itemsCharged, int creditsApplied){
 
-                if(newBalanceCalc() > creditLimit ){
-                    System.out.println("Credit limit exceeded");
-                    break;
-                }
+            this.totalItemsCharged += itemsCharged;
+            this.totalCreditsApplied += creditsApplied;
 
-                System.out.println("Enter price of item. Enter 0 to end");
-                itemPrice = input.nextInt();
+            System.out.println("Customer Account: " + accountNum);
+            System.out.println("Your beginning balance: $" + balance);
+            balance = newBalanceCalc();
+            System.out.println("Your new balance is : $" + balance);
+            if(balance > creditLimit){
+                System.out.println("Credit limit exceeded");
+            }
+        } // constructor
 
-            } // end of while
-
-            System.out.println("This is your new balance: $" + newBalanceCalc());
-            System.out.println("This is your credit line: $" + totalCreditsApplied + " / " + creditLimit);
-
-        } // end of constructor
 
 
         // calculates the new balance and determining if the balance exceeded the credit limit
@@ -54,6 +50,7 @@ public class CreditLimitCalc {
             return newBalance;
         }
 
+        // GETTERS & SETTERS
         public int getAccountNum() {
             return accountNum;
         }
