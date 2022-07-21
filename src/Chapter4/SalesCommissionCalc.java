@@ -36,11 +36,15 @@ public class SalesCommissionCalc {
 
         } // end of while
 
+        System.out.println("Your total pay is : $" + totalPayCalc() );
 
-    }
+    } // end of constructor
 
 
     public double totalPayCalc(){
         return flatPay + (grossTotal * commissionRate);
     }
+
+
+
 } // end of class
