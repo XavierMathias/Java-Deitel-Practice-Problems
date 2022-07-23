@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
 
         SalesCommissionCalc salesCommissionCalc = new SalesCommissionCalc();
-        CreditLimitCalc clc = new CreditLimitCalc();
+        // CreditLimitCalc clc = new CreditLimitCalc();
        // GasMileage gm = new GasMileage();
     } // end of main
 
