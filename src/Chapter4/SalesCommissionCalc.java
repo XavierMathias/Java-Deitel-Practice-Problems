@@ -16,6 +16,7 @@ public class SalesCommissionCalc {
 
     public SalesCommissionCalc() {
         System.out.println("Select items you have sold. Enter 0 to end");
+        System.out.println("Item - Value:\n1 - 239.99\n2 - 129.75\n3 - 99,95\n4 - 350.89");
         int response = input.nextInt();
         while(response == 0){
             switch(response){
@@ -32,6 +33,7 @@ public class SalesCommissionCalc {
             } // end of switch
 
             System.out.println("Select items you have sold. Enter 0 to end");
+            System.out.println("Item - Value:\n1 - 239.99\n2 - 129.75\n3 - 99,95\n4 - 350.89");
             response = input.nextInt();
 
         } // end of while
