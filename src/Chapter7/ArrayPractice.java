@@ -1,5 +1,7 @@
 package Chapter7;
 
+import java.security.SecureRandom;
+
 public class ArrayPractice {
 
     String[] names = {"David", "Melina", "Esther", "Jon"};
@@ -26,7 +28,23 @@ public class ArrayPractice {
         }
 
         barChart();
+        rollDie();
+
     } // end of constructor
+
+    public void rollDie(){
+        SecureRandom sr = new SecureRandom();
+        int[] freq = new int[7];
+
+        for(int roll = 1; roll <= 60_000; roll++){
+            ++freq[1 + sr.nextInt(6)]; //
+        }
+
+        for (int face = 1; face < freq.length; face++){
+            System.out.printf("%5d : %d%n", face, freq[face]);
+        }
+
+    } // end of rollDie
 
 
     public void barChart(){
