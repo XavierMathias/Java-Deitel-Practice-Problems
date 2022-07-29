@@ -25,6 +25,34 @@ public class ArrayPractice {
             counter++;
         }
 
+        barChart();
     } // end of constructor
+
+
+    public void barChart(){
+        int[] grades = {0, 0 , 0, 7, 0, 0, 1, 2, 4, 2, 1};
+
+        System.out.println("Grade Distribution:");
+
+        for (int counter = 0; counter < grades.length; counter++){
+
+            if (counter == 10){
+                System.out.printf("%5d: ", 100);
+
+            } else {
+                System.out.printf("%02d-%02d: ", counter * 10, counter * 10 + 9);
+            }
+
+            for (int index = 0; index < grades[counter]; index++){
+                System.out.print(" * ");
+            }
+            System.out.println();
+
+        } // end of for loop
+
+        System.out.println();
+
+
+    } // end of barChart
 
 } // end of class
